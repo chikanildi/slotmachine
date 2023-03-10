@@ -19,7 +19,7 @@ class SlotMachine
         while (coins > 0 && playAgain)
         {
             int matches = 0;
-            Console.WriteLine($"How much would you like to bet? ({MIN_BET}-{MAX_BET}");
+            Console.WriteLine($"How much would you like to bet? ({MIN_BET}-{MAX_BET})");
             Console.WriteLine();
             Console.Write("Bet:");
             int betAmount = int.Parse(Console.ReadLine());
@@ -72,7 +72,6 @@ class SlotMachine
                     Console.WriteLine();
                     Console.WriteLine($"The number of matches:{matches}");
                     Console.WriteLine($"You won {winnings} dollars!");
-                    Console.WriteLine($"You have {coins} coins");
                 }
                 else
                 {
@@ -83,8 +82,8 @@ class SlotMachine
                         Console.WriteLine("Game over. You have no more money to play.");
                         break;
                     }
-                    Console.WriteLine($"You have {coins} coins");
                 }
+                Console.WriteLine($"You have {coins} coins");
                 Console.WriteLine("Would you like to play again? (y/n)");
                 string playAgainStr = Console.ReadLine();
                 if (playAgainStr == "y")
