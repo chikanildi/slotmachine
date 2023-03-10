@@ -2,9 +2,11 @@
 
 class SlotMachine
 {
+    const int STARTING_COINS = 1000;
+
     static void Main()
     {
-        int coins = 1000;
+        int coins = STARTING_COINS;
         int betAmount = 0;
         int[,] spin = new int[3, 3];
         Random rand = new Random();
