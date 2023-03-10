@@ -3,10 +3,13 @@
 class SlotMachine
 {
     const int STARTING_COINS = 1000;
+    const int MIN_BET = 1;
+    const int MAX_BET = 100;
 
     static void Main()
     {
         int coins = STARTING_COINS;
+
         int betAmount = 0;
         int[,] spin = new int[3, 3];
         Random rand = new Random();
@@ -24,12 +27,12 @@ class SlotMachine
             betAmount = int.Parse(Console.ReadLine());
             Console.WriteLine();
 
-            if (betAmount < 1 || betAmount > 100)
+            if (betAmount < MIN_BET || betAmount > MAX_BET)
             {
                 Console.WriteLine("Invalid bet amount. Please try again.");
                 continue;
             }
-            if (betAmount >= 1 && betAmount <= 100)
+            else
             {
                 for (int i = 0; i < 3; i++)
                 {
