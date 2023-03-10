@@ -1,9 +1,9 @@
 ﻿using System;
 class SlotMachine
 {
-    const int STARTING_COINS = 1000;
+    const int STARTING_COINS = 100;
     const int MIN_BET = 1;
-    const int MAX_BET = 100;
+    const int MAX_BET = 1000;
     static void Main()
     {
         int coins = STARTING_COINS;
@@ -24,7 +24,7 @@ class SlotMachine
             Console.Write("Bet:");
             int betAmount = int.Parse(Console.ReadLine());
             Console.WriteLine();
-            if (betAmount < MIN_BET || betAmount > MAX_BET)
+            if (betAmount > coins || betAmount > MAX_BET)
             {
                 Console.WriteLine("Invalid bet amount. Please try again.");
                 continue;
@@ -77,11 +77,7 @@ class SlotMachine
                 {
                     Console.WriteLine("\nSorry, you lost.");
                     coins -= betAmount;
-                    if (coins <= 0)
-                    {
-                        Console.WriteLine("Game over. You have no more money to play.");
-                        break;
-                    }
+
                 }
                 Console.WriteLine($"You have {coins} coins");
                 Console.WriteLine("Would you like to play again? (y/n)");
