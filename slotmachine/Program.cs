@@ -9,13 +9,14 @@ class SlotMachine
     static void Main()
     {
         int coins = STARTING_COINS;
-
         int betAmount = 0;
         int[,] spin = new int[3, 3];
         Random rand = new Random();
         bool playAgain = true;
         int winnings = 0;
         int matches = 0;
+        int numRows = spin.GetLength(0);
+        int numCols = spin.GetLength(0);
 
         Console.WriteLine("Welcome to the Slot Machine game!");
         Console.WriteLine($"You have {coins} coins");
@@ -34,9 +35,9 @@ class SlotMachine
             }
             else
             {
-                for (int i = 0; i < 3; i++)
+                for (int i = 0; i < numRows; i++)
                 {
-                    for (int j = 0; j < 3; j++)
+                    for (int j = 0; j < numCols; j++)
                     {
                         spin[i, j] = rand.Next(0, 3);
                         Console.Write($"{spin[i, j]}\t");
