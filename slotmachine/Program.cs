@@ -1,33 +1,29 @@
 ﻿using System;
-
 class SlotMachine
 {
     const int STARTING_COINS = 1000;
     const int MIN_BET = 1;
     const int MAX_BET = 100;
-
     static void Main()
     {
         int coins = STARTING_COINS;
-        int betAmount = 0;
         int[,] spin = new int[3, 3];
         Random rand = new Random();
         bool playAgain = true;
         int winnings = 0;
-        int matches = 0;
-        int numRows = spin.GetLength(0);
-        int numCols = spin.GetLength(0);
 
+        int numRows = spin.GetLength(0);
+        int numCols = spin.GetLength(1);
         Console.WriteLine("Welcome to the Slot Machine game!");
         Console.WriteLine($"You have {coins} coins");
         while (coins > 0 && playAgain)
         {
-            Console.WriteLine($"How much would you like to bet? (1-100)");
+            int matches = 0;
+            Console.WriteLine($"How much would you like to bet? ({MIN_BET}-{MAX_BET}");
             Console.WriteLine();
             Console.Write("Bet:");
-            betAmount = int.Parse(Console.ReadLine());
+            int betAmount = int.Parse(Console.ReadLine());
             Console.WriteLine();
-
             if (betAmount < MIN_BET || betAmount > MAX_BET)
             {
                 Console.WriteLine("Invalid bet amount. Please try again.");
@@ -44,7 +40,6 @@ class SlotMachine
                     }
                     Console.WriteLine();
                 }
-
                 // check horizontal lines
                 for (int i = 0; i < 3; i++)
                 {
@@ -53,7 +48,6 @@ class SlotMachine
                         matches++;
                     }
                 }
-
                 // check vertical lines
                 for (int i = 0; i < 3; i++)
                 {
@@ -62,18 +56,15 @@ class SlotMachine
                         matches++;
                     }
                 }
-
                 // check diagonals
                 if (spin[0, 0] == spin[1, 1] && spin[1, 1] == spin[2, 2])
                 {
                     matches++;
                 }
-
                 if (spin[2, 0] == spin[1, 1] && spin[1, 1] == spin[0, 2])
                 {
                     matches++;
                 }
-
                 if (matches > 0)
                 {
                     winnings = matches * betAmount;
@@ -94,7 +85,6 @@ class SlotMachine
                     }
                     Console.WriteLine($"You have {coins} coins");
                 }
-
                 Console.WriteLine("Would you like to play again? (y/n)");
                 string playAgainStr = Console.ReadLine();
                 if (playAgainStr == "y")
@@ -110,5 +100,3 @@ class SlotMachine
         }
     }
 }
-
-
