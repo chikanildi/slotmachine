@@ -34,6 +34,8 @@ class SlotMachine
                 continue;
             }
 
+            coins -= betAmount;
+
             for (int i = 0; i < spin.GetLength(0); i++)
             {
                 for (int j = 0; j < spin.GetLength(1); j++)
@@ -86,7 +88,7 @@ class SlotMachine
 
             else
             {
-                coins -= betAmount;
+
                 if (coins <= 0)
                 {
                     Console.WriteLine("You are out of coins");
