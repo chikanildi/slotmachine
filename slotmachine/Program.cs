@@ -19,7 +19,8 @@ class SlotMachine
         while (true)
         {
             int winnings = 0; // added this line to reset winnings to zero
-            Console.WriteLine($"How much would you like to bet? ({MIN_BET}-{MAX_BET})"); Console.Write("Bet: ");
+            Console.WriteLine($"How much would you like to bet? ({MIN_BET}-{MAX_BET})"); 
+            Console.Write("Bet: ");
             int betAmount = int.Parse(Console.ReadLine());
 
             if (betAmount < MIN_BET || betAmount > MAX_BET)
